@@ -30,6 +30,13 @@ environment:
 dependencies:
   get:
   http:
+  google_fonts:
+  carousel_slider:
+  flutter_rating_bar:
+  convex_bottom_bar:
+  intl:
+  path_provider:
+  sqflite:
   flutter:
     sdk: flutter
 

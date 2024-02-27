@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final movie = movieFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Movie movieFromJson(String str) => Movie.fromJson(json.decode(str));
@@ -10,22 +5,22 @@ Movie movieFromJson(String str) => Movie.fromJson(json.decode(str));
 String movieToJson(Movie data) => json.encode(data.toJson());
 
 class Movie {
-  List<Result> results;
+  List<Popular> resultsPopular;
 
   Movie({
-    required this.results,
+    required this.resultsPopular,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) => Movie(
-    results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+    resultsPopular: List<Popular>.from(json["results"].map((x) => Popular.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "results": List<dynamic>.from(results.map((x) => x.toJson())),
+    "results": List<dynamic>.from(resultsPopular.map((x) => x.toJson())),
   };
 }
 
-class Result {
+class Popular {
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -41,7 +36,7 @@ class Result {
   double voteAverage;
   int voteCount;
 
-  Result({
+  Popular({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -58,7 +53,7 @@ class Result {
     required this.voteCount,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory Popular.fromJson(Map<String, dynamic> json) => Popular(
     adult: json["adult"],
     backdropPath: json["backdrop_path"],
     genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
